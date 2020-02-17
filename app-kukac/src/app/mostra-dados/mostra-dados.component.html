@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="card-body">
+        <h1 class="display-4 titulo">Resultado</h1>
+        <table class="table table-light" *ngIf="verificaEndereco()">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Logradouro</th>
+                    <th scope="col">Complemento</th>
+                    <th scope="col">Bairro</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Renda per capita</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{dados.nome?dados.nome:'Não Informado'}}</td>
+                    <td>{{formataCep()}}</td>
+                    <td>{{dados.endereco.logradouro?dados.endereco.logradouro:'Não Informado'}}</td>
+                    <td>{{dados.endereco.complemento?dados.endereco.complemento:'Não Informado'}}</td>
+                    <td>{{dados.endereco.bairro?dados.endereco.bairro:'Não Informado'}}</td>
+                    <td>{{dados.endereco.localidade}}</td>
+                    <td>{{dados.endereco.uf}}</td>
+                    <td>R$ {{dados.rendaPerCapita}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-light" *ngIf="!verificaEndereco()">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Renda per capita</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{dados.nome?dados.nome:'Não Informado'}}</td>
+                    <td>{{formataCep()}}</td>
+                    <td>{{dados.endereco}}</td>
+                    <td>R$ {{dados.rendaPerCapita}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" (click)="novaConsulta()" class="btn btn-lg btn-block btn-info">
+            Nova Consulta
+        </button>
+    </div>
+</div>

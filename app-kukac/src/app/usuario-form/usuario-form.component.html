@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <h1 class="display-4 titulo">Usuario</h1>
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+      <input type="hidden" name="id" #id="ngModel" [(ngModel)]="usuario.id">
+      <div class="form-group">
+        <input name="nome" #nome="ngModel" [(ngModel)]="usuario.nome" class="form-control" placeholder="Nome">
+      </div>
+      <div class="form-group">
+        <input name="cep" #cep="ngModel" [(ngModel)]="usuario.cep" class="form-control" [specialCharacters]="['.','-']"
+          mask="00.000-000" placeholder="CEP" required>
+        <div *ngIf="cep.invalid && cep.touched" class="validation-error">This field is required.</div>
+      </div>
+      <div class="form-group">
+        <input name="renda" #renda="ngModel" [(ngModel)]="usuario.renda" class="form-control"
+          [specialCharacters]="['.']" (blur)="formataRenda($event)" mask="0*.00" [dropSpecialCharacters]="false"
+          placeholder="Renda Mensal" required>
+        <div *ngIf="renda.invalid && renda.touched" class="validation-error">This field is required.</div>
+      </div>
+      <div class="form-group">
+        <input name="dependentes" #dependentes="ngModel" [(ngModel)]="usuario.dependentes" class="form-control"
+          placeholder="Nº Dependetes" required>
+        <div *ngIf="dependentes.invalid && dependentes.touched" class="validation-error">This field is required.</div>
+      </div>
+      <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">
+          Enviar </button>
+      </div>
+    </form>
+  </div>
+</div>
