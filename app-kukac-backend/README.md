@@ -1,4 +1,4 @@
-# Passos para iniciar o servidor
+# Passos para iniciar o Back-end
 
 - Abra o prompt nesta pasta
 
