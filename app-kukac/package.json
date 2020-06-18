@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~9.0.1",
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
-    "angular": "^1.7.9",
+    "angular": "^1.8.0",
     "angular-2-local-storage": "^3.0.2",
     "axios": "^0.19.2",
     "ngx-mask": "^8.1.7",
